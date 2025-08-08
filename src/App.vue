@@ -1,26 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<h2>Students</h2>
+	<ul v-for="student in students" :key="student.name">
+		<li>{{ student.name }}</li>
+	</ul>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+	name: "App",
+	data() {
+		return {
+			students: [
+				{ name: "Alice", age: 20 },
+				{ name: "Bob", age: 22 },
+				{ name: "Charlie", age: 23 },
+				{ name: "David", age: 21 },
+				{ name: "Eve", age: 22 },
+			],
+		};
+	},
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
