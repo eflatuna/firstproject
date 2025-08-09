@@ -1,13 +1,14 @@
 <template>
 	<h2>Students</h2>
-	<ul v-for="student in students" :key="student.name">
-		<li>{{ student.name }}</li>
-	</ul>
+	<StudentItem :data="students" name="can" />
 </template>
 
 <script>
+import StudentItem from "./components/StudentItem.vue";
+
 export default {
 	name: "App",
+	components: { StudentItem },
 	data() {
 		return {
 			students: [
