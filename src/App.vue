@@ -1,15 +1,13 @@
 <template>
 	<h2>Students</h2>
-	<StudentItem name="Alice" :age="20" mail="q1w2e@example.com" isPassed="1" />
-	<StudentItem name="Bob" :age="22" mail="KlJ5g@example.com" isPassed="0" />
 	<StudentItem
-		name="Charlie"
-		:age="23"
-		mail="q1w2e@example.com"
-		isPassed="0"
+		v-for="student in students"
+		:key="student.id"
+		:name="student.name"
+		:age="student.age"
+		:mail="student.email"
+		:isPassed="student.isPassed"
 	/>
-	<StudentItem name="David" :age="21" mail="q1w2e@example.com" isPassed="1" />
-	<StudentItem name="Eve" :age="22" mail="q1w2e@example.com" isPassed="1" />
 </template>
 
 <script>
@@ -21,11 +19,48 @@ export default {
 	data() {
 		return {
 			students: [
-				{ name: "Alice", age: 20 },
-				{ name: "Bob", age: 22 },
-				{ name: "Charlie", age: 23 },
-				{ name: "David", age: 21 },
-				{ name: "Eve", age: 22 },
+				{
+					id: "1",
+					name: "Alice",
+					age: 20,
+					email: "q1w2e@example.com",
+					isPassed: true,
+				},
+				{
+					id: "2",
+					name: "Bob",
+					age: 22,
+					email: "q1w2e@example.com",
+					isPassed: true,
+				},
+				{
+					id: "3",
+					name: "Bob",
+					age: 22,
+					email: "q1w2e@example.com",
+					isPassed: true,
+				},
+				{
+					id: "4",
+					name: "Charlie",
+					age: 23,
+					email: "q1w2e@example.com",
+					isPassed: false,
+				},
+				{
+					id: "5",
+					name: "David",
+					age: 21,
+					email: "q1w2e@example.com",
+					isPassed: false,
+				},
+				{
+					id: "6",
+					name: "Eve",
+					age: 22,
+					email: "q1w2e@example.com",
+					isPassed: false,
+				},
 			],
 		};
 	},

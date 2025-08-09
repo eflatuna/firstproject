@@ -1,5 +1,5 @@
 <template>
-	{{ name }}{{ studentIsPassed === "1" ? " (Passed)" : " (Not Passed)" }}
+	{{ name }}{{ studentIsPassed === "true" ? " (Passed)" : " (Not Passed)" }}
 	<button @click="toggleIsPassed()">Gecti Kaldi Degistir</button>
 	<button @click="toggleDetail()">
 		Bilgileri {{ isVisible ? "gizle" : "goster" }}
@@ -28,12 +28,9 @@ export default {
 			required: true,
 		},
 		isPassed: {
-			type: String,
+			type: Boolean,
 			required: true,
-			default: "0",
-			validator: function (value) {
-				return value === "1" || value === "0";
-			},
+			default: false,
 		},
 	},
 
@@ -48,11 +45,7 @@ export default {
 			this.isVisible = !this.isVisible;
 		},
 		toggleIsPassed() {
-			if (this.studentIsPassed === 1) {
-				this.studentIsPassed = 0;
-			} else {
-				this.studentIsPassed = 1;
-			}
+			this.studentIsPassed = !this.studentIsPassed;
 		},
 	},
 };
