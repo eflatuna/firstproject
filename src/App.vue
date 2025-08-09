@@ -7,6 +7,8 @@
 		:age="student.age"
 		:mail="student.email"
 		:isPassed="student.isPassed"
+		:id="student.id"
+		@toggleStudentIsPassed="toggleStudentStatus"
 	/>
 </template>
 
@@ -63,6 +65,15 @@ export default {
 				},
 			],
 		};
+	},
+	methods: {
+		toggleStudentStatus(studentId) {
+			console.log(studentId);
+			const myStudent = this.students.find(
+				(student) => student.id === studentId
+			);
+			myStudent.isPassed = !myStudent.isPassed;
+		},
 	},
 };
 </script>

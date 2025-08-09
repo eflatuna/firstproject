@@ -1,5 +1,5 @@
 <template>
-	{{ name }}{{ studentIsPassed === "true" ? " (Passed)" : " (Not Passed)" }}
+	{{ name }}{{ isPassed ? " (Passed)" : " (Not Passed)" }}
 	<button @click="toggleIsPassed()">Gecti Kaldi Degistir</button>
 	<button @click="toggleDetail()">
 		Bilgileri {{ isVisible ? "gizle" : "goster" }}
@@ -13,8 +13,13 @@
 <script>
 export default {
 	name: "StudentItem",
+	emits: ["toggleStudentIsPassed"],
 	// props: ["name", "age", "mail", "isPassed"],
 	props: {
+		id: {
+			type: String,
+			required: true,
+		},
 		name: {
 			type: String,
 			required: true,
@@ -37,7 +42,7 @@ export default {
 	data() {
 		return {
 			isVisible: false,
-			studentIsPassed: this.isPassed,
+			// studentIsPassed: this.isPassed,
 		};
 	},
 	methods: {
@@ -45,7 +50,8 @@ export default {
 			this.isVisible = !this.isVisible;
 		},
 		toggleIsPassed() {
-			this.studentIsPassed = !this.studentIsPassed;
+			// this.studentIsPassed = !this.studentIsPassed;
+			this.$emit("toggleStudentIsPassed", this.id);
 		},
 	},
 };
