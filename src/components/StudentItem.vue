@@ -13,7 +13,30 @@
 <script>
 export default {
 	name: "StudentItem",
-	props: ["name", "age", "mail", "isPassed"],
+	// props: ["name", "age", "mail", "isPassed"],
+	props: {
+		name: {
+			type: String,
+			required: true,
+		},
+		age: {
+			type: Number,
+			required: true,
+		},
+		mail: {
+			type: String,
+			required: true,
+		},
+		isPassed: {
+			type: String,
+			required: true,
+			default: "0",
+			validator: function (value) {
+				return value === "1" || value === "0";
+			},
+		},
+	},
+
 	data() {
 		return {
 			isVisible: false,
