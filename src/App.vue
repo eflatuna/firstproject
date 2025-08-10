@@ -1,5 +1,5 @@
 <template>
-	<StudentForm />
+	<StudentForm @addStudent="addNewStudent" />
 	<div class="main-container">
 		<h2>Students</h2>
 		<StudentItem
@@ -60,13 +60,6 @@ export default {
 					email: "q1w2e@example.com",
 					isPassed: false,
 				},
-				{
-					id: "6",
-					name: "Eve",
-					age: 22,
-					email: "q1w2e@example.com",
-					isPassed: false,
-				},
 			],
 		};
 	},
@@ -77,6 +70,16 @@ export default {
 				(student) => student.id === studentId
 			);
 			myStudent.isPassed = !myStudent.isPassed;
+		},
+		addNewStudent(payload) {
+			const newStudent = {
+				id: new Date().toISOString(),
+				name: payload.name,
+				age: payload.age,
+				email: payload.email,
+				isPassed: payload.isPassed,
+			};
+			this.students.push(newStudent);
 		},
 	},
 };

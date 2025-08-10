@@ -22,6 +22,7 @@
 export default {
 	name: "StudentItem",
 	emits: ["toggleStudentIsPassed"],
+
 	// props: ["name", "age", "mail", "isPassed"],
 	props: {
 		id: {
