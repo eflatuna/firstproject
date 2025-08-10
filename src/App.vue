@@ -1,4 +1,5 @@
 <template>
+	<StudentForm />
 	<h2>Students</h2>
 	<StudentItem
 		v-for="student in students"
@@ -14,10 +15,11 @@
 
 <script>
 import StudentItem from "./components/StudentItem.vue";
+import StudentForm from "./components/StudentForm.vue";
 
 export default {
 	name: "App",
-	components: { StudentItem },
+	components: { StudentItem, StudentForm },
 	data() {
 		return {
 			students: [
