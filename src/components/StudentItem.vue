@@ -1,13 +1,21 @@
 <template>
-	{{ name }}{{ isPassed ? " (Passed)" : " (Not Passed)" }}
-	<button @click="toggleIsPassed()">Gecti Kaldi Degistir</button>
-	<button @click="toggleDetail()">
-		Bilgileri {{ isVisible ? "gizle" : "goster" }}
-	</button>
-	<ul v-if="isVisible">
-		<li>Age:{{ age }}</li>
-		<li>Email:{{ mail }}</li>
-	</ul>
+	<div class="student">
+		{{ name }}{{ isPassed ? " (Passed)" : " (Not Passed)" }}
+		<button @click="toggleIsPassed()">Gecti Kaldi Degistir</button>
+		<button @click="toggleDetail()">
+			Bilgileri {{ isVisible ? "gizle" : "goster" }}
+		</button>
+		<ul v-if="isVisible">
+			<li>
+				<p>Age:</p>
+				{{ age }}
+			</li>
+			<li>
+				<p>Email:</p>
+				{{ mail }}
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script>

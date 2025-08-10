@@ -1,18 +1,18 @@
 <template>
 	<form>
-		<div>
+		<div class="form-control">
 			<label>Ad</label>
 			<input type="text" />
 		</div>
-		<div>
+		<div class="form-control">
 			<label>Telefon</label>
 			<input type="text" />
 		</div>
-		<div>
+		<div class="form-control">
 			<label>Email</label>
 			<input type="email" />
 		</div>
-		<div>
+		<div class="form-control">
 			<label>Dersi Gecme Durumu:</label>
 			<input type="checkbox" />
 		</div>
